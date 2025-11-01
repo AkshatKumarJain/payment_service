@@ -1,10 +1,10 @@
 import express from "express";
 import { authMiddleware } from "redis-jwt-auth";
-import { createIntent, confirms } from "../controllers/payments.controller.js";
+import { createIntent, confirm } from "../controllers/payments.controller.js";
 
 const router = express.Router();
 
 router.post('/intent', authMiddleware({ require: true }), createIntent);
-router.post('/confirm', authMiddleware({ require: true }), confirms);
+router.post('/confirm', authMiddleware({ require: true }), confirm);
 
 export default router;
